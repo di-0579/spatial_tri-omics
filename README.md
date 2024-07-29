@@ -33,3 +33,23 @@ Mouse reference (mm10):
 Human reference (GRCh38):
 
     curl -O https://cf.10xgenomics.com/supp/cell-atac/refdata-cellranger-atac-GRCh38-1.2.0.tar.gz
+
+
+
+
+####2. Identify useful pixels (pixel on tissue) from microscope image using Matlab
+Useful pixels were generated from the Matlab script. Basically, it divide the real tissue microscope image into 50x50 small sqaures which match with DBiT-seq pixels. Then, the intensity inside each pixel was calculated and only pixels have signals above a threashold will be selected.
+
+There two steps: To run the Matlab script "Pixel_identification.m"
+
+Use Photoshop or other photo editing software to crop the microscope image into exactly the size of the DBiT-seq covering area. 
+
+Use threashold function under Image->adjustment menu to adjust the image, so that your tissue is black and background is compeletely white.
+Invert the color of the image. 
+
+Run the matlab script and a postion.txt file will be generated, which contains only the useful pixels.
+
+
+
+
+
