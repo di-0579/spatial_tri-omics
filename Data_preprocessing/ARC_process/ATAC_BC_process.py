@@ -13,7 +13,7 @@ input_file_R1 = args["input"]
 output_file_R1 = args["output_R1"]
 output_file_R2 = args["output_R2"]
 
-seq_start=117 # 22bp primer  + 8bp BC2 + 30bp linker2 + 8bp BC1 + 30bp linker1 + 19bp ME (chemV2 with UMI)
+seq_start=117 
 
 bc2_start=22 
 bc2_end=30
@@ -25,7 +25,7 @@ with gzopen(input_file_R1, "rt") as in_handle_R1, open(output_file_R1, "w") as o
     for title, seq, qual in FastqGeneralIterator(in_handle_R1):
         new_seq_R1 = seq[seq_start:]
         new_qual_R1 = qual[seq_start:]
-        barcode = seq[bc2_start:bc2_end] + seq[bc1_start:bc1_end] # !!! BC2 + BC1
+        barcode = seq[bc2_start:bc2_end] + seq[bc1_start:bc1_end] 
         new_qual_R2 = qual[bc2_start:bc2_end] + qual[bc1_start:bc1_end]        
         out_handle_R1.write("@%s\n%s\n+\n%s\n" % (title, new_seq_R1, new_qual_R1))
         out_handle_R2.write("@%s\n%s\n+\n%s\n" % (title, barcode, new_qual_R2))
