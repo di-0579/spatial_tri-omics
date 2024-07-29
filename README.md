@@ -49,6 +49,10 @@ Invert the color of the image.
 
 Run the matlab script and a postion.txt file will be generated, which contains only the useful pixels.
 
+Then run 02_tissue_positions_list.R to generate the information needed for the spatial file.
+
+
+
 
 
 
