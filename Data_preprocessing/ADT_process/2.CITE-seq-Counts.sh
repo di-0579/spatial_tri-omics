@@ -13,7 +13,7 @@ module load miniconda
 source activate DBITpl
 
 sample=P5_Q43
-tmp_data="/vast/palmer/scratch/fan/dz286/tmp_data"
+tmp_data="/vast/palmer/scratch/tmp_data"
 outs=$tmp_data/${sample}_Prot
 
 CITE_outs="./${sample}_citeouts"
