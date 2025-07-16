@@ -184,7 +184,7 @@ gene_list <- split(rownames(df_genes), df_genes$category)
 table(df_genes$category)
 
 selected_genes <- df_genes$category != "FALSE_FALSE_FALSE" & 
-  rownames(df_genes) %in% names(which(adjr_squred > 0.01)) & 
+  rownames(df_genes) %in% names(which(adjr_squred > 0.02)) & 
   rownames(df_genes) %in% names(which(lrt_test_pvalue_adj < 0.01))
 selected_genes <- rownames(df_genes)[selected_genes]
 length(selected_genes)
@@ -494,9 +494,9 @@ colnames(agg_df_mat_combine)[c(1:5)] <- c("Timepoint", "final_bin", "cluster", "
 
 agg_df_mat_spatial <- merge(rbind(refined_corpus_region_idx, refined_corpus_region_idx), agg_df_mat_combine)
 agg_df_mat_spatial$Sample <- factor(agg_df_mat_spatial$Sample, 
-                                    levels = c("B8P0", "C8P0", "Q43P0",
-                                               "B8P2", "Q43P2", "C8P5", "Q43P5",
-                                               "C8P10", "Q43P10", "Q43P21", "C8P22"))
+                                    levels = c("P0_S1", "P0_S2", "P2_S1",
+                                               "P2_S2", "P5_S1", "P5_S2", "P7_S2",
+                                               "P10_S1", "P10_S2", "P21_S1", "P21_S2"))
 
 
 
@@ -544,10 +544,10 @@ gene_list <- c("Pcdh15", "Sema3c", "Ptprz1",
                "Vcan", "Sox6", "Ncan", "Pdgfra",
                "Ednrb", "Cspg5", "Kcnip3", "Bcas1",
                "Serpine2", "Cd9", "Gpr17", "Tnr",
-               "Mpzl1", "Itpr2", "9630013A20Rik",
+               "Mpzl1", "Itpr2",
                "Rras2", "Cnksr3", "Ctps", "Glul", "Fyn", 
                "Onecut2", "Myrf", "S100b", "Car2", "Prr5l",
-               "Cnp", "Egr1", "Mog", "Mobp", "Mag", "Mbp", "Opalin",
+               "Cnp", "Egr1", "Mog", "Mobp", "Mag", "Mbp",
                "Kcna2", "Nfasc", 
                "Kcna1", "Cntn2")
 
